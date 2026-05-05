@@ -1,0 +1,31 @@
+---
+interface Props {
+	title: string;
+	links: Array<Link>;
+	image: string;
+}
+
+interface Link {
+	name: string;
+	href: string;
+}
+---
+
+<div
+	class="flex items-center justify-between gap-4 outline-1 outline-zinc-800 rounded-sm overflow-hidden"
+>
+	<div class="px-6 py-4">
+		<h2 class="text-xl font-semibold mb-4">{Astro.props.title}</h2>
+
+		<div class="flex gap-3">
+			{
+				Astro.props.links.map((l) => (
+					<a class="underline decoration-dashed underline-offset-4 text-sm decoration-zinc-400" href={l.href} target="_blank">
+						{l.name}
+					</a>
+				))
+			}
+		</div>
+	</div>
+	<img src={Astro.props.image} class="h-32" />
+</div>

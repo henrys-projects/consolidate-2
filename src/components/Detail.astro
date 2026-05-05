@@ -1,0 +1,10 @@
+---
+interface Props {
+	icon: string;
+}
+---
+
+<div class="flex items-center gap-3">
+	<img src={Astro.props.icon} class="size-3 object-contain" />
+	<p><slot /></p>
+</div>

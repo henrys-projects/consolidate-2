@@ -1,0 +1,42 @@
+---
+interface Props {
+	icon: string;
+	title: string;
+	href: string;
+	color: string;
+}
+
+const backgroundColor = `color-mix(in hsl, ${Astro.props.color} 30%, transparent)`;
+const outlineColor = `color-mix(in hsl, ${Astro.props.color} 30%, transparent)`;
+---
+
+<a class="px-6 py-4 flex items-center gap-4 bg-zinc-900 outline-1 outline-zinc-800 rounded-sm background-highlight" href={Astro.props.href} target="_blank">
+	<img src={Astro.props.icon} class="size-6" />
+	<p>{Astro.props.title}</p>
+</a>
+
+<style define:vars={{ outlineColor, backgroundColor }}>
+	@reference "tailwindcss";
+
+	.background-highlight {
+		@apply relative transition-colors overflow-hidden;
+	}
+
+	.background-highlight:hover {
+		outline-color: var(--outlineColor);
+	}
+
+	.background-highlight::before {
+		content: "";
+		@apply absolute inset-0 opacity-0 transition-opacity;
+		background: linear-gradient(
+			45deg,
+			var(--backgroundColor) 0%,
+			transparent 100%
+		);
+	}
+
+	.background-highlight:hover::before {
+		@apply opacity-100;
+	}
+</style>

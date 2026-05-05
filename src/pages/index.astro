@@ -1,0 +1,83 @@
+---
+import Font from "astro/components/Font.astro";
+import Detail from "../components/Detail.astro";
+import LinkCard from "../components/LinkCard.astro";
+import ProjectCard from "../components/ProjectCard.astro";
+import "../styles/global.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<link rel="icon" href="/favicon.ico" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Henry</title>
+
+		<Font cssVariable="--font-default" />
+	</head>
+	<body
+		class="bg-zinc-950 text-zinc-50 font-(family-name:--font-default) selection:bg-zinc-300/20"
+	>
+		<div class="w-180 mx-auto mt-40 mb-20">
+			<div class="flex justify-between items-center">
+				<h1 class="text-8xl mb-4 font-semibold">
+					Henry<span class="text-teal-200">.</span>
+				</h1>
+
+				<div class="flex flex-col gap-1">
+					<Detail icon="icons/location.png">London</Detail>
+					<Detail icon="icons/university-of-bath.png">MMath</Detail>
+					<Detail icon="icons/code.png">Software Engineer</Detail>
+				</div>
+			</div>
+
+			<ul class="flex items-center gap-4 *:flex-1 mt-8 mb-24">
+				<li>
+					<LinkCard
+						icon="icons/stack-overflow.png"
+						title="Stack Overflow"
+						color="#ff5e00"
+						href="https://stackoverflow.com/users/10082297/henry-twist"
+					/>
+				</li>
+
+				<li>
+					<LinkCard
+						icon="icons/github.png"
+						title="GitHub"
+						color="#0fbf3e"
+						href="https://github.com/hctwist"
+					/>
+				</li>
+
+				<li>
+					<LinkCard
+						icon="icons/email.png"
+						title="Email me"
+						color="#D9FCF5"
+						href="mailto:henrytwistprojects@gmail.com"
+					/>
+				</li>
+			</ul>
+
+			<div class="flex flex-col gap-4">
+				<ProjectCard
+					title="Watch Roll"
+					links={[
+						{
+							name: "Google Play",
+							href: "https://play.google.com/store/apps/details?id=uk.henrytwist.watchroll",
+						},
+						{
+							name: "GitHub",
+							href: "https://github.com/hctwist/watch-roll",
+						},
+					]}
+					image="shot-1.jpg"
+				/>
+			</div>
+		</div>
+	</body>
+</html>
