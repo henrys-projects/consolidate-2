@@ -12,7 +12,7 @@ const outlineColor = `color-mix(in hsl, ${Astro.props.color} 30%, transparent)`;
 
 <a class="px-6 py-4 flex items-center gap-4 bg-zinc-900 outline-1 outline-zinc-800 rounded-sm background-highlight" href={Astro.props.href} target="_blank">
 	<img src={Astro.props.icon} class="size-6" />
-	<p>{Astro.props.title}</p>
+	<p class="text-nowrap">{Astro.props.title}</p>
 </a>
 
 <style define:vars={{ outlineColor, backgroundColor }}>
