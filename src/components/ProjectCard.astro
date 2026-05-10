@@ -20,8 +20,15 @@ interface Link {
 		<div class="flex flex-col lg:flex-row gap-3">
 			{
 				Astro.props.links.map((l) => (
-					<a class="underline decoration-dashed underline-offset-4 text-sm decoration-zinc-500  hover:decoration-zinc-400 transition-colors" href={l.href} target="_blank">
-						{l.name}
+					<a
+						class="text-sm decoration-zinc-500  hover:decoration-zinc-400 transition-colors"
+						href={l.href}
+						target="_blank"
+					>
+						<div class="flex items-center gap-1 group">
+							<p class="underline decoration-dotted underline-offset-5">{l.name}</p>
+							<img src="icons/chevron-forward.png" class="size-4 group-hover:-rotate-45 transition-transform" />
+						</div>
 					</a>
 				))
 			}
