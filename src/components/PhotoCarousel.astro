@@ -1,0 +1,30 @@
+---
+import { undefined } from "astro:schema";
+
+type Alignment = "start" | "center" | "end";
+
+interface Props {
+	alignment?: Alignment;
+}
+
+const alignmentClasses: Record<Alignment, string> = {
+	start: "justify-start",
+	center: "justify-center",
+	end: "justify-end",
+};
+
+const alignment = Astro.props.alignment ?? "center";
+const alignmentClass = alignmentClasses[alignment];
+const marginClass =
+	alignment === "center" ? "*:ml-auto *:first:ml-0" : undefined;
+---
+
+<div
+	class:list={[
+		"flex flex-wrap gap-4 justify-center h-32 overflow-hidden *:size-32",
+		alignmentClass,
+		marginClass,
+	]}
+>
+	<slot />
+</div>

@@ -1,1 +1,7 @@
 @import "tailwindcss";
+
+@layer components {
+	.link-underline {
+		@apply underline decoration-dotted underline-offset-5 decoration-zinc-400;
+	}
+}

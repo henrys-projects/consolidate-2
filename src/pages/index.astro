@@ -1,8 +1,8 @@
 ---
 import Font from "astro/components/Font.astro";
-import DevelopmentProjectCard from "../components/DevelopmentProjectCard.astro";
+import DevelopmentProjectCard from "../components/DevelopmentProject.astro";
 import Photo from "../components/Photo.astro";
-import ProjectCard from "../components/ProjectCard.astro";
+import PhotoCarousel from "../components/PhotoCarousel.astro";
 import Section from "../components/Section.astro";
 import "../styles/global.css";
 ---
@@ -20,23 +20,25 @@ import "../styles/global.css";
 		<Font cssVariable="--font-display" />
 	</head>
 	<body
-		class="bg-zinc-900 text-zinc-50 font-(family-name:--font-default) selection:bg-zinc-300/20"
+		class="bg-zinc-900 text-zinc-50 font-(family-name:--font-default) selection:bg-zinc-300/20 bg-[radial-gradient(circle,var(--color-zinc-800)_1px,transparent_1px)] bg-size-[32px_32px]"
 	>
-		<div class="lg:w-180 w-[80%] mx-auto mt-40 mb-20">
-			<div class="flex justify-between items-center">
+		<div class="w-[min(85%,800px)] mx-auto mt-40 mb-20">
+			<div class="flex flex-col justify-between gap-4 md:flex-row md:items-center">
 				<h1
 					class="font-(family-name:--font-display) text-6xl font-extrabold"
 				>
-					Henry<span class="text-teal-300">'</span>s<br />Projects
+					Henry's<br />Projects<span class="text-teal-300">.</span>
 				</h1>
 
-				<div class="flex flex-col gap-1 text-end">
-					<ul class="flex flex-wrap [&>*:not(:last-child)]:after:content-['•'] [&>*:not(:last-child)]:after:mx-2">
+				<div class="flex flex-col gap-1 md:text-end">
+					<ul
+						class="flex flex-wrap [&>*:not(:last-child)]:after:content-['•'] [&>*:not(:last-child)]:after:mx-2"
+					>
 						<li>London</li>
 						<li>Software Engineer</li>
 						<li>MMath</li>
 					</ul>
-					<a href="mailto:henry@henrysprojects.com" class="mt-2"
+					<a href="mailto:henry@henrysprojects.com" class="link-underline"
 						>henry@henrysprojects.uk</a
 					>
 				</div>
@@ -88,19 +90,16 @@ import "../styles/global.css";
 				]}
 				class="mt-12"
 			>
-				<ProjectCard>
-					<div
-						class="flex flex-wrap justify-between h-32 overflow-hidden"
-					>
-						<Photo src="projects/photography.jpg" />
-						<Photo src="projects/photography.jpg" />
-						<Photo src="projects/photography.jpg" />
-						<Photo src="projects/photography.jpg" />
-						<Photo src="projects/photography.jpg" />
-						<Photo src="projects/photography.jpg" />
-					</div>
-				</ProjectCard>
+				<PhotoCarousel>
+					<Photo src="projects/photography.jpg" />
+					<Photo src="projects/photography.jpg" />
+					<Photo src="projects/photography.jpg" />
+					<Photo src="projects/photography.jpg" />
+					<Photo src="projects/photography.jpg" />
+					<Photo src="projects/photography.jpg" />
+				</PhotoCarousel>
 			</Section>
 		</div>
 	</body>
 </html>
+]

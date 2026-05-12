@@ -1,0 +1,46 @@
+---
+import Photo from "./Photo.astro";
+import PhotoCarousel from "./PhotoCarousel.astro";
+
+interface Props {
+	title: string;
+	links: Array<Link>;
+	images: string[];
+}
+
+interface Link {
+	name: string;
+	href: string;
+}
+---
+
+<div class="flex items-center justify-between *:flex-1">
+	<div>
+		<h2 class="text-xl font-semibold mb-4">{Astro.props.title}</h2>
+
+		<div class="flex flex-col md:flex-row gap-y-1 gap-x-3">
+			{
+				Astro.props.links.map((l) => (
+					<a
+						class="text-sm"
+						href={l.href}
+						target="_blank"
+					>
+						<div class="flex items-center gap-1 group">
+							<p class="link-underline">
+								{l.name}
+							</p>
+							<img
+								src="icons/chevron-forward.png"
+								class="size-4 group-hover:-rotate-45 transition-transform"
+							/>
+						</div>
+					</a>
+				))
+			}
+		</div>
+	</div>
+	<PhotoCarousel alignment="end">
+		{Astro.props.images.map((i) => <Photo src={i} />)}
+	</PhotoCarousel>
+</div>

@@ -9,12 +9,16 @@ interface Props {
 }
 ---
 
-<div class:list={[Astro.props.class]}>
-	<div class="flex justify-between items-end mb-4">
-		<h2 class="font-semibold">{Astro.props.title}</h2>
+<!-- bg-[color-mix(in_oklab,var(--color-zinc-800),var(--color-zinc-900),50%)] -->
+<div class:list={[Astro.props.class, "bg-zinc-800  rounded-2xl"]}>
+	<div class="flex justify-between items-center px-8 py-3">
+		<h2>{Astro.props.title}</h2>
 		<div class="flex gap-2">
 			{Astro.props.links.map((l) => <LinkButton link={l} />)}
 		</div>
 	</div>
-	<slot />
+	<div class="h-px w-full bg-zinc-900"></div>
+	<div class="px-8 py-6">
+		<slot />
+	</div>
 </div>

@@ -5,12 +5,12 @@ interface Props {
 	link: Link;
 }
 
-const backgroundColor = `color-mix(in hsl, ${Astro.props.link.color} 30%, transparent)`;
-const outlineColor = `color-mix(in hsl, ${Astro.props.link.color} 30%, transparent)`;
+const backgroundColor = `color-mix(in hsl, ${Astro.props.link.color} 50%, transparent)`;
+const outlineColor = `color-mix(in hsl, ${Astro.props.link.color} 50%, transparent)`;
 ---
 
 <a
-	class="block p-4 border border-zinc-800 rounded-full background-highlight"
+	class="block p-3 outline outline-zinc-700 rounded-full background-highlight"
 	href={Astro.props.link.href}
 	target="_blank"
 >
