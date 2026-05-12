@@ -5,12 +5,19 @@ import tailwindcss from '@tailwindcss/vite';
 
 // https://astro.build/config
 export default defineConfig({
-  vite: {
-    plugins: [tailwindcss()]
-  },
-  fonts: [{
-	provider: fontProviders.google(),
-	name: "Lato",
-	cssVariable: "--font-default"
-  }]
+	vite: {
+		plugins: [tailwindcss()]
+	},
+	fonts: [
+		{
+			provider: fontProviders.google(),
+			name: "Lato",
+			cssVariable: "--font-default"
+		},
+		{
+			provider: fontProviders.google(),
+			name: "Inter",
+			cssVariable: "--font-display",
+			weights: [700]
+		}]
 });

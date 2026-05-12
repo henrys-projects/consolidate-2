@@ -1,8 +1,9 @@
 ---
 import Font from "astro/components/Font.astro";
-import Detail from "../components/Detail.astro";
-import LinkCard from "../components/LinkCard.astro";
+import DevelopmentProjectCard from "../components/DevelopmentProjectCard.astro";
+import Photo from "../components/Photo.astro";
 import ProjectCard from "../components/ProjectCard.astro";
+import Section from "../components/Section.astro";
 import "../styles/global.css";
 ---
 
@@ -13,68 +14,51 @@ import "../styles/global.css";
 		<link rel="icon" href="/favicon.ico" />
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
-		<title>Henry</title>
+		<title>Henry's Projects</title>
 
 		<Font cssVariable="--font-default" />
+		<Font cssVariable="--font-display" />
 	</head>
 	<body
 		class="bg-zinc-900 text-zinc-50 font-(family-name:--font-default) selection:bg-zinc-300/20"
 	>
 		<div class="lg:w-180 w-[80%] mx-auto mt-40 mb-20">
-			<div class="flex flex-col lg:flex-row lg:justify-between lg:items-center">
-				<h1 class="text-6xl lg:text-8xl font-semibold">
-					Henry<span class="text-teal-300">.</span>
+			<div class="flex justify-between items-center">
+				<h1
+					class="font-(family-name:--font-display) text-6xl font-extrabold"
+				>
+					Henry<span class="text-teal-300">'</span>s<br />Projects
 				</h1>
 
-				<div class="flex flex-row lg:flex-col gap-x-4 gap-y-1 lg:gap-1 flex-wrap mt-4 lg:mt-0">
-					<Detail icon="icons/location.png">London</Detail>
-					<Detail icon="icons/university-of-bath.png">MMath</Detail>
-					<Detail icon="icons/code.png">Software Engineer</Detail>
+				<div class="flex flex-col gap-1 text-end">
+					<ul class="flex flex-wrap [&>*:not(:last-child)]:after:content-['•'] [&>*:not(:last-child)]:after:mx-2">
+						<li>London</li>
+						<li>Software Engineer</li>
+						<li>MMath</li>
+					</ul>
+					<a href="mailto:henry@henrysprojects.com" class="mt-2"
+						>henry@henrysprojects.uk</a
+					>
 				</div>
 			</div>
 
-			<ul class="flex flex-col lg:flex-row lg:items-center gap-4 *:flex-1 mt-12 mb-24">
-				<li>
-					<LinkCard
-						icon="icons/stack-overflow.png"
-						title="Stack Overflow"
-						color="#ff5e00"
-						href="https://stackoverflow.com/users/10082297/henry-twist"
-					/>
-				</li>
-
-				<li>
-					<LinkCard
-						icon="icons/github.png"
-						title="GitHub"
-						color="#0fbf3e"
-						href="https://github.com/hctwist"
-					/>
-				</li>
-
-				<li>
-					<LinkCard
-						icon="icons/email.png"
-						title="Email me"
-						color="#D9FCF5"
-						href="mailto:henry@henrysprojects.com"
-					/>
-				</li>
-			</ul>
-
-			<div class="flex flex-col gap-4">
-				<ProjectCard
-					title="Photography"
-					links={[
-						{
-							name: "Glass",
-							href: "https://glass.photo/henrysprojects",
-						}
-					]}
-					image="projects/photography.jpg"
-				/>
-
-				<ProjectCard
+			<Section
+				title="Development"
+				links={[
+					{
+						icon: "icons/stack-overflow.png",
+						color: "#ff5e00",
+						href: "https://stackoverflow.com/users/10082297/henry-twist",
+					},
+					{
+						icon: "icons/github.png",
+						color: "#0fbf3e",
+						href: "https://github.com/hctwist",
+					},
+				]}
+				class="mt-24"
+			>
+				<DevelopmentProjectCard
 					title="Watch Roll"
 					links={[
 						{
@@ -86,9 +70,37 @@ import "../styles/global.css";
 							href: "https://github.com/hctwist/watch-roll",
 						},
 					]}
-					image="projects/watch-roll.jpg"
+					images={[
+						"projects/watch-roll.jpg",
+						"projects/watch-roll.jpg",
+					]}
 				/>
-			</div>
+			</Section>
+
+			<Section
+				title="Photography"
+				links={[
+					{
+						icon: "icons/glass.png",
+						color: "#FFD60A",
+						href: "https://glass.photo/henrysprojects",
+					},
+				]}
+				class="mt-12"
+			>
+				<ProjectCard>
+					<div
+						class="flex flex-wrap justify-between h-32 overflow-hidden"
+					>
+						<Photo src="projects/photography.jpg" />
+						<Photo src="projects/photography.jpg" />
+						<Photo src="projects/photography.jpg" />
+						<Photo src="projects/photography.jpg" />
+						<Photo src="projects/photography.jpg" />
+						<Photo src="projects/photography.jpg" />
+					</div>
+				</ProjectCard>
+			</Section>
 		</div>
 	</body>
 </html>

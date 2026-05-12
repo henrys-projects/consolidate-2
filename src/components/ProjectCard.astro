@@ -1,38 +1,18 @@
----
-interface Props {
-	title: string;
-	links: Array<Link>;
-	image: string;
-}
-
-interface Link {
-	name: string;
-	href: string;
-}
----
-
-<div
-	class="flex items-center justify-between gap-4 outline-1 outline-zinc-800 rounded-sm overflow-hidden"
->
-	<div class="px-6 py-4">
-		<h2 class="text-xl font-semibold mb-4">{Astro.props.title}</h2>
-
-		<div class="flex flex-col lg:flex-row gap-3">
-			{
-				Astro.props.links.map((l) => (
-					<a
-						class="text-sm decoration-zinc-500  hover:decoration-zinc-400 transition-colors"
-						href={l.href}
-						target="_blank"
-					>
-						<div class="flex items-center gap-1 group">
-							<p class="underline decoration-dotted underline-offset-5">{l.name}</p>
-							<img src="icons/chevron-forward.png" class="size-4 group-hover:-rotate-45 transition-transform" />
-						</div>
-					</a>
-				))
-			}
-		</div>
+<div class="background-lines">
+	<div class="py-4">
+		<slot />
 	</div>
-	<img src={Astro.props.image} class="h-32" />
 </div>
+
+<style>
+	@reference "tailwindcss";
+
+	.background-lines {
+		position: relative;
+	}
+
+	.background-lines::before,
+	.background-lines::after {
+		@apply content-[''] absolute h-px left-0 right-0 bg-zinc-800;
+	}
+</style>
