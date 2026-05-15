@@ -10,8 +10,16 @@ import "../styles/global.css";
 <html lang="en">
 	<head>
 		<meta charset="utf-8" />
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
-		<link rel="icon" href="/favicon.ico" />
+
+		<link
+			rel="icon"
+			type="image/png"
+			href="/favicon-96x96.png?v=20260515"
+			sizes="96x96"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260515" />
+		<link rel="shortcut icon" href="/favicon.ico?v=20260515" />
+
 		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 		<meta name="generator" content={Astro.generator} />
 		<title>Henry's Projects</title>
@@ -23,7 +31,9 @@ import "../styles/global.css";
 		class="bg-zinc-900 bg-[url(background.svg)] bg-cover text-zinc-50 font-(family-name:--font-default) selection:bg-zinc-300/20"
 	>
 		<div class="w-[min(85%,800px)] mx-auto mt-40 mb-20">
-			<div class="flex flex-col justify-between gap-4 md:flex-row md:items-center">
+			<div
+				class="flex flex-col justify-between gap-4 md:flex-row md:items-center"
+			>
 				<h1
 					class="font-(family-name:--font-display) text-6xl font-extrabold"
 				>
@@ -38,8 +48,9 @@ import "../styles/global.css";
 						<li>Software Engineer</li>
 						<li>MMath</li>
 					</ul>
-					<a href="mailto:henry@henrysprojects.com" class="link-underline"
-						>henry@henrysprojects.uk</a
+					<a
+						href="mailto:henry@henrysprojects.com"
+						class="link-underline">henry@henrysprojects.uk</a
 					>
 				</div>
 			</div>
