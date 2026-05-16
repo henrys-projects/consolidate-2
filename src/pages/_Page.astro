@@ -1,0 +1,33 @@
+---
+import Font from "astro/components/Font.astro";
+import "../styles/global.css";
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+
+		<link
+			rel="icon"
+			type="image/png"
+			href="/favicon-96x96.png?v=20260515"
+			sizes="96x96"
+		/>
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260515" />
+		<link rel="shortcut icon" href="/favicon.ico?v=20260515" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Henry's Projects</title>
+
+		<Font cssVariable="--font-default" />
+		<Font cssVariable="--font-display" />
+	</head>
+	<body
+		class="bg-zinc-900 bg-[url(background.svg)] bg-cover text-zinc-50 font-(family-name:--font-default) selection:bg-zinc-300/20"
+	>
+		<div class="w-[min(85%,800px)] mx-auto my-20">
+			<slot />
+		</div>
+	</body>
+</html>

@@ -1,116 +1,83 @@
 ---
-import Font from "astro/components/Font.astro";
 import DevelopmentProjectCard from "../components/DevelopmentProject.astro";
 import Photo from "../components/Photo.astro";
 import PhotoCarousel from "../components/PhotoCarousel.astro";
 import Section from "../components/Section.astro";
-import "../styles/global.css";
+import Page from "./_Page.astro";
 ---
 
-<html lang="en">
-	<head>
-		<meta charset="utf-8" />
-
-		<link
-			rel="icon"
-			type="image/png"
-			href="/favicon-96x96.png?v=20260515"
-			sizes="96x96"
-		/>
-		<link rel="icon" type="image/svg+xml" href="/favicon.svg?v=20260515" />
-		<link rel="shortcut icon" href="/favicon.ico?v=20260515" />
-
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
-		<meta name="generator" content={Astro.generator} />
-		<title>Henry's Projects</title>
-
-		<Font cssVariable="--font-default" />
-		<Font cssVariable="--font-display" />
-	</head>
-	<body
-		class="bg-zinc-900 bg-[url(background.svg)] bg-cover text-zinc-50 font-(family-name:--font-default) selection:bg-zinc-300/20"
+<Page>
+	<div
+		class="flex flex-col justify-between gap-4 md:flex-row md:items-center pt-20"
 	>
-		<div class="w-[min(85%,800px)] mx-auto mt-40 mb-20">
-			<div
-				class="flex flex-col justify-between gap-4 md:flex-row md:items-center"
-			>
-				<h1
-					class="font-(family-name:--font-display) text-6xl font-extrabold"
-				>
-					Henry's<br />Projects<span class="text-teal-300">.</span>
-				</h1>
+		<h1 class="font-(family-name:--font-display) text-6xl font-extrabold">
+			Henry's<br />Projects<span class="text-teal-300">.</span>
+		</h1>
 
-				<div class="flex flex-col gap-1 md:text-end">
-					<ul
-						class="flex flex-wrap [&>*:not(:last-child)]:after:content-['•'] [&>*:not(:last-child)]:after:mx-2"
-					>
-						<li>London</li>
-						<li>Software Engineer</li>
-						<li>MMath</li>
-					</ul>
-					<a
-						href="mailto:henry@henrysprojects.com"
-						class="link-underline">henry@henrysprojects.uk</a
-					>
-				</div>
-			</div>
-
-			<Section
-				title="Development"
-				links={[
-					{
-						icon: "icons/stack-overflow.png",
-						color: "#ff5e00",
-						href: "https://stackoverflow.com/users/10082297/henry-twist",
-					},
-					{
-						icon: "icons/github.png",
-						color: "#0fbf3e",
-						href: "https://github.com/hctwist",
-					},
-				]}
-				class="mt-24"
+		<div class="flex flex-col gap-1 md:text-end">
+			<ul
+				class="flex flex-wrap [&>*:not(:last-child)]:after:content-['•'] [&>*:not(:last-child)]:after:mx-2"
 			>
-				<DevelopmentProjectCard
-					title="Watch Roll"
-					links={[
-						{
-							name: "Google Play",
-							href: "https://play.google.com/store/apps/details?id=uk.henrytwist.watchroll",
-						},
-						{
-							name: "GitHub",
-							href: "https://github.com/hctwist/watch-roll",
-						},
-					]}
-					images={[
-						"projects/watch-roll.jpg",
-						"projects/watch-roll.jpg",
-					]}
-				/>
-			</Section>
-
-			<Section
-				title="Photography"
-				links={[
-					{
-						icon: "icons/glass.png",
-						color: "#FFD60A",
-						href: "https://glass.photo/henrysprojects",
-					},
-				]}
-				class="mt-12"
+				<li>London</li>
+				<li>Software Engineer</li>
+				<li>MMath</li>
+			</ul>
+			<a href="mailto:henry@henrysprojects.com" class="link-underline"
+				>henry@henrysprojects.uk</a
 			>
-				<PhotoCarousel>
-					<Photo src="projects/photography.jpg" />
-					<Photo src="projects/photography.jpg" />
-					<Photo src="projects/photography.jpg" />
-					<Photo src="projects/photography.jpg" />
-					<Photo src="projects/photography.jpg" />
-					<Photo src="projects/photography.jpg" />
-				</PhotoCarousel>
-			</Section>
 		</div>
-	</body>
-</html>
-]
+	</div>
+
+	<Section
+		title="Development"
+		links={[
+			{
+				icon: "icons/stack-overflow.png",
+				color: "#ff5e00",
+				href: "https://stackoverflow.com/users/10082297/henry-twist",
+			},
+			{
+				icon: "icons/github.png",
+				color: "#0fbf3e",
+				href: "https://github.com/hctwist",
+			},
+		]}
+		class="mt-24"
+	>
+		<DevelopmentProjectCard
+			title="Watch Roll"
+			links={[
+				{
+					name: "Google Play",
+					href: "https://play.google.com/store/apps/details?id=uk.henrytwist.watchroll",
+				},
+				{
+					name: "GitHub",
+					href: "https://github.com/hctwist/watch-roll",
+				},
+			]}
+			images={["projects/watch-roll.jpg", "projects/watch-roll.jpg"]}
+		/>
+	</Section>
+
+	<Section
+		title="Photography"
+		links={[
+			{
+				icon: "icons/glass.png",
+				color: "#FFD60A",
+				href: "https://glass.photo/henrysprojects",
+			},
+		]}
+		class="mt-12"
+	>
+		<PhotoCarousel>
+			<Photo src="projects/photography.jpg" />
+			<Photo src="projects/photography.jpg" />
+			<Photo src="projects/photography.jpg" />
+			<Photo src="projects/photography.jpg" />
+			<Photo src="projects/photography.jpg" />
+			<Photo src="projects/photography.jpg" />
+		</PhotoCarousel>
+	</Section>
+</Page>
