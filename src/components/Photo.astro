@@ -1,7 +1,10 @@
 ---
 interface Props {
 	src: string;
+	href?: string;
 }
 ---
 
-<img src={Astro.props.src} class="rounded-xl object-cover" />
+<a class="block" href={Astro.props.href} target="_blank">
+	<img src={Astro.props.src} class="size-full rounded-xl object-cover" />
+</a>

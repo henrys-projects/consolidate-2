@@ -4,6 +4,16 @@ import Photo from "../components/Photo.astro";
 import PhotoCarousel from "../components/PhotoCarousel.astro";
 import Section from "../components/Section.astro";
 import Page from "./_Page.astro";
+
+const photos = [
+    "projects/photography/matterhorn.jpg",
+    "projects/photography/tromso.jpg",
+    "projects/photography/dusky-leaf.jpg",
+    "projects/photography/trwyn.jpg",
+    "projects/photography/bern.jpg",
+];
+
+const glassLink = "https://glass.photo/henrysprojects";
 ---
 
 <Page>
@@ -66,17 +76,13 @@ import Page from "./_Page.astro";
 			{
 				icon: "icons/glass.png",
 				color: "#FFD60A",
-				href: "https://glass.photo/henrysprojects",
+				href: glassLink,
 			},
 		]}
 		class="mt-12"
 	>
 		<PhotoCarousel>
-			<Photo src="projects/photography/matterhorn.jpg" />
-			<Photo src="projects/photography/tromso.jpg" />
-			<Photo src="projects/photography/dusky-leaf.jpg" />
-			<Photo src="projects/photography/trwyn.jpg" />
-			<Photo src="projects/photography/bern.jpg" />
+			{photos.map(p => (<Photo src={p} href={glassLink} />))}
 		</PhotoCarousel>
 	</Section>
 </Page>
